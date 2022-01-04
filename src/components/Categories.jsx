@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // class Categories extends React.Component {
 //   state = {
@@ -10,7 +10,7 @@ import React from "react";
 //       activeItem: index,
 //     });
 //   };
- 
+
 //   render() {
 //     const { items } = this.props;
 //     return (
@@ -32,14 +32,30 @@ import React from "react";
 //   }
 // }
 
-const Categories = ({ items, onClick }) => {
-  // const [state, setstate] = useState(initialState)
+const Categories = ({ items }) => {
+  const [activeItem, setActiveItem] = useState(null);
+
+  const onClickItem = (index) => {
+    setActiveItem(index);
+  };
+
   return (
     <div className="categories">
       <ul>
-        <li className="active">Все</li>
-        {items.map((name, index) => (
-          <li onClick={() => onClick(name)} key={`${name}_${index}`}>{name}</li>
+        <li
+          className={activeItem === null ? "active" : ""}
+          onClick={() => onClickItem(null)}  
+        >
+          Все
+        </li>
+        {items && items.map((name, index) => (
+          <li
+            className={activeItem === index ? "active" : ""}
+            onClick={() => onClickItem(index)}
+            key={`${name}_${index}`}
+          >
+            {name}
+          </li>
         ))}
       </ul>
     </div>
