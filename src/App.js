@@ -1,11 +1,6 @@
+import { Routes, Route, Link } from "react-router-dom";
 import { Header } from "./components";
-import Home from "./components/Pages/Home";
-
-{
-  /* <Routes>
-  <Route path="/" element={<App />} />
-</Routes>; */
-}
+import { Home, Cart } from "./components/Pages";
 
 function App() {
   return (
@@ -14,7 +9,10 @@ function App() {
         <div className="wrapper">
           <Header />
           <div className="content">
-            <Home />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="cart" element={<Cart />} />
+            </Routes>
           </div>
         </div>
       </div>
