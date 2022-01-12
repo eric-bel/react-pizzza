@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Header } from "./components";
 import { Home, Cart } from "./components/Pages";
 
@@ -21,7 +21,7 @@ function App() {
           <Header />
           <div className="content">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home items={pizzas} />} />
               <Route path="cart" element={<Cart />} />
             </Routes>
           </div>
