@@ -12,7 +12,7 @@ const SortPopUp = ({ items }) => {
 
   const handleOutsideClick = (e) => {
     if (!e.path.includes(sortRef.current)) {
-      setVisiblePopUp(!visiblePopUp);
+      setVisiblePopUp(visiblePopUp);
     }
   };
   const onSelectItem = (index) => {
