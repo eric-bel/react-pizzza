@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import propTypes from "prop-types";
 
 export const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
   const availableTypes = ["тонкое", "традиционное"];
@@ -48,11 +49,6 @@ export const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
                 </li>
               ))}
             </ul>
-            {/* <ul>
-              <li className="active">26 см.</li>
-              <li>30 см.</li>
-              <li>40 см.</li>
-            </ul> */}
           </div>
           <div className="pizza-block__bottom">
             <div className="pizza-block__price">от {price} ₽</div>
@@ -77,4 +73,16 @@ export const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
       </div>
     </>
   );
+};
+
+PizzaBlock.propTypes = {
+  name: propTypes.string.isRequired,
+  imageUrl: propTypes.string.isRequired,
+  price: propTypes.number.isRequired,
+  types: propTypes.arrayOf(propTypes.number).isRequired,
+  sizes: propTypes.arrayOf(propTypes.number).isRequired,
+};
+
+PizzaBlock.defaultProps = {
+  types: [],
 };
