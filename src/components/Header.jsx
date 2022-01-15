@@ -1,3 +1,4 @@
+import React from 'react'
 import logoSvg from "../assets/img/pizza-logo.svg";
 import Button from "./Button";
 import { Link } from "react-router-dom";
@@ -60,4 +61,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
